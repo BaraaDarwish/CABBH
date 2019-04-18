@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% extends "CAC/base.html" %}
+
+
+{% block content %}
+<h2>Feature Selection Results</h2>
+<table class="table">
+        <thead class="thead-dark">
+    <tr>
+        <th>name</th>
+        <th>old features count</th>
+        <th>new features count</th>
+        <th>old accuracy</td>
+        <th>new accuracy</td>
+        <th>csv download</th>
+        <th></th>
+    </tr>
+</thead>
+    {% for result in results_list %}
+    <tr>
+        <td>{{ result.name }}</td>
+        <td>{{ result.old_features }}</td>
+        <td>{{ result.new_features }}</td>
+        <td>{{ result.old_accuracy }}</td>
+        <td>{{ result.new_accurcay }}</td>
+        <td><a class="btn btn-primary" href="{% url 'FS:download_csv' result.id %}">Download</a></td>
+        <td><a class="btn btn-danger" href="{% url 'FS:delete_result'  pk=result.id %}">Delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

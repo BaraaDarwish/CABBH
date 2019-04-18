@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% extends "CAC/base.html" %}
+
+{% block content %}
+<div class="jumbotron">
+<h1>Login:</h1>
+<form action="{% url 'FS:user_login' %}" method="POST">
+    {% csrf_token %}
+    <label for="username">Username:</label>
+    <input type="text" name="username" placeholder="Enter Username">
+
+    <label for="password">Password:</label>
+    <input type="password" name="password" >
+    <input type="submit" value="login">
+   
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% extends "CAC/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+    {% if registerd %}
+        <h1>Thank you for registeirng</h1>
+    {% else %}
+        <h1>Register Here</h1>
+        <h3>Fill out the form</h3>
+        <form method="POST" enctype="multipart/form-data">
+            <div class="form-group" style="padding:20px">
+            {% csrf_token %}
+            {{ user_form.as_p }}
+            
+            <input type="submit" name="" value="Register">
+        </div>
+        </form>
+    {% endif %}
+{% endblock %}

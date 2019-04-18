@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% extends "CAC/base.html" %}
+
+user = models.ForeignKey(
+        User, on_delete=models.CASCADE , blank = True)
+    name = models.CharField(max_length=50,default='Untitled')
+    Pregnancies = models.IntegerField( validators=[])
+    Glucose = models.IntegerField()	
+    BloodPressure = models.IntegerField()
+    SkinThickness = models.IntegerField()	
+    Insulin = models.IntegerField()
+    BMI =  models.FloatField()	
+    DiabetesPedigreeFunction = models.FloatField()	
+    Age = models.IntegerField()	
+    result = models.CharField(max_length=50)
+{% block content %}
+<h2>Feature Selection Results</h2>
+<table class="table">
+        <thead class="thead-dark">
+    <tr>
+        <th>name</th>
+        <th>Pregnancies</th>
+        <th>Glucose</th>
+        <th>Blood Pressure</td>
+        <th>Skin Thickness</td>
+        <th>Insulin</th>
+        <th>BMI</th>
+        <th>Diabetes Pedigree Function</th>
+        <th>Age</th>
+        <th>result</th>
+        <th></th>
+    </tr>
+</thead>
+    {% for result in results_list %}
+    <tr>
+        <td>{{ result.name }}</td>
+        <td>{{ result.Pregnancies }}</td>
+        <td>{{ result.Glucose }}</td>
+        <td>{{ result.BloodPressure }}</td>
+        <td>{{ result.SkinThickness }}</td>
+        <td>{{ result.Insulin }}</td>
+        <td>{{ result.BMI }}</td>
+        <td>{{ result.DiabetesPedigreeFunction }}</td>
+        <td>{{ result.Age }}</td>
+        <td>{{ result.result }}</td>
+       
+        <td><a class="btn btn-danger" href="{% url 'CAC:delete_diabetes_result'  pk=result.id %}">Delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
