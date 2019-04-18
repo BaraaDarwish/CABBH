@@ -93,9 +93,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'CABBH' ,
-        "USER":'postgres',
-        "PASSWORD":'test',
-        'HOST':'localhost',
+        "USER":'qvqlhswy',
+        "PASSWORD":'MTJzcNalB_bXC7V6AtOmq_obpPElA7Ty',
+        'HOST':'manny.db.elephantsql.com',
         'PORT':'5432',
     }
 }
