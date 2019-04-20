@@ -4,6 +4,7 @@
 
 {% block content %}
 <h2>Feature Selection Results</h2>
+{% if results_list %}
 <table class="table">
         <thead class="thead-dark">
     <tr>
@@ -27,6 +28,9 @@
         <td><a class="btn btn-danger" href="{% url 'FS:delete_result'  pk=result.id %}">Delete</a></td>
     </tr>
     {% endfor %}
-</table>
 
+</table>
+{% else %}
+    <h3>There are no results to display</h3>
+{% endif %}
 {% endblock %}

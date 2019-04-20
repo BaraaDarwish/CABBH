@@ -92,7 +92,7 @@ WSGI_APPLICATION = 'CABBH.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'CABBH' ,
+        'NAME': 'qvqlhswy' ,
         "USER":'qvqlhswy',
         "PASSWORD":'MTJzcNalB_bXC7V6AtOmq_obpPElA7Ty',
         'HOST':'manny.db.elephantsql.com',
