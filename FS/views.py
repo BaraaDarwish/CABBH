@@ -40,6 +40,7 @@ def register(requset):
             user.save()
 
             register = True
+            return HttpResponseRedirect(reverse("FS:login"))
 						
         else:
             print(user_form.errors)
