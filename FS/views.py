@@ -17,6 +17,7 @@ from rest_framework import generics,authentication,permissions
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.settings import api_settings
 from django.contrib.auth.models import User
+from rest_framework.authtoken.models import Token
 # Create your views here.
 
 def index(request):
@@ -40,7 +41,7 @@ def register(requset):
             user.save()
 
             register = True
-            return HttpResponseRedirect(reverse("FS:login"))
+            return HttpResponseRedirect(reverse("FS:user_login"))
 						
         else:
             print(user_form.errors)
@@ -129,8 +130,8 @@ def download_csv(request , result_id):
     file = FS.objects.filter(id= result_id)[0]
     response = HttpResponse(file.csv,content_type = 'text/csv')
     response['Content-Disposition'] = 'attachment; filename="'+file.name+ '"'
-   
     return response
+
 
 class delete_result(DeleteView):
     model = FS
@@ -139,9 +140,19 @@ class delete_result(DeleteView):
     success_url = reverse_lazy('FS:results')
 
 
-class FSList(generics.ListCreateAPIView):
-    queryset = FS.objects.all()
+class FSList(generics.ListAPIView):
     serializer_class = FSSerializer
+
+    def get_queryset(self):
+        """
+        This view should return a list of all the purchases
+        for the currently authenticated user.
+        """
+        print(self.request.META.get('HTTP_AUTHORIZATION'))
+        token_str = self.request.META.get('HTTP_AUTHORIZATION').split(" ")
+        token = Token.objects.filter(key=token_str[1] ).first()
+        user = token.user_id
+        return FS.objects.filter(user=user)
 
 
 class UserAPIList(generics.ListCreateAPIView):

@@ -7,8 +7,12 @@ from CAC.models import DiabetesPrediction
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView ,DeleteView
 from django.core.urlresolvers import reverse , reverse_lazy
-
-
+from CAC.serializers import DiabetesSerializer
+from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework.settings import api_settings
+from django.contrib.auth.models import User
+from rest_framework.authtoken.models import Token
+from rest_framework import generics,authentication,permissions
 
 def index(request):
     return render(request , 'CAC/index.html' )
@@ -71,3 +75,17 @@ class delete_diabetes_result(DeleteView):
     context_object_name = "result"
     template_name = "CAC/delete_diabetes_result.html"
     success_url = reverse_lazy('CAC:diabetes_results')
+
+class DiabetesListAPI(generics.ListAPIView):
+    serializer_class = DiabetesSerializer
+
+    def get_queryset(self):
+        """
+        This view should return a list of all the purchases
+        for the currently authenticated user.
+        """
+        print(self.request.META.get('HTTP_AUTHORIZATION'))
+        token_str = self.request.META.get('HTTP_AUTHORIZATION').split(" ")
+        token = Token.objects.filter(key=token_str[1] ).first()
+        user = token.user_id
+        return DiabetesPrediction.objects.filter(user=user)
