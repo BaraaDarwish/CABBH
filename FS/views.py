@@ -174,3 +174,18 @@ class ManageUserView(generics.RetrieveUpdateAPIView):
     permission_classes = (permissions.IsAuthenticated,)
     def get_object(self):
         return self.request.user
+
+
+class FSListAPI(generics.ListAPIView):
+    serializer_class = FSSerializer
+
+    def get_queryset(self):
+        """
+        This view should return a list of all the purchases
+        for the currently authenticated user.
+        """
+        print(self.request.META.get('HTTP_AUTHORIZATION'))
+        token_str = self.request.META.get('HTTP_AUTHORIZATION').split(" ")
+        token = Token.objects.filter(key=token_str[1] ).first()
+        user = token.user_id
+        return FS.objects.filter(user=user)

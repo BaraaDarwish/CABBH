@@ -8,8 +8,7 @@ class FSSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = FS
-        fields = ('pk' ,'user', 'name', 'old_features', 'new_features',
-               'old_accuracy' ,  'new_accurcay', 'csv', )
+        fields = ("__all__" )
 
 class UserSerializer(serializers.ModelSerializer):
         class Meta:

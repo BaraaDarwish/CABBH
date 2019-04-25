@@ -16,5 +16,6 @@ urlpatterns =[
     url('create-user' , views.create_user_API.as_view(),name="create_user"),
     url('token/',views.create_token_view.as_view(),name="token"),
     url('me/',views.ManageUserView.as_view(),name="me"),
+    url('fs-results-api/',views.FSListAPI.as_view(),name="fs_results_api"),
  
 ]
