@@ -1,63 +1,90 @@
 {% extends "CAC/base.html" %}
 {% load static %}
 {% block content %}
-<header class="masthead text-white text-center" style= "background-image: url( '{% static "images/brain.jpeg"%}')>
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-9 mx-auto">
-                <h1 class="mb-5">Build a landing page for your business or project and generate more leads!</h1>
-            </div>
-            <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-                <form>
-                    <div class="form-row">
-                        <div class="col-12 col-md-9 mb-2 mb-md-0">
-                            <input type="email" class="form-control form-control-lg"
-                                placeholder="Enter your email...">
-                        </div>
-                        <div class="col-12 col-md-3">
-                            <button type="submit" class="btn btn-block btn-lg btn-primary">Sign up!</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+  <!-- Header -->
+  <header class="bg-primary py-5 mb-5">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-lg-12">
+          <h1 class="display-4 text-white mt-5 mb-2">CACBBH</h1>
+          <p class="lead mb-5 text-white-50">Cellular Automata Classifier using Binary Black hole optimization, is a new approach for data classification based on the cellular automata rules.</p>
         </div>
+      </div>
     </div>
-</header>
+  </header>
 
+  <!-- Page Content -->
+  <div class="container">
 
- <!-- Icons Grid -->
- <section class="features-icons bg-light text-center">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                    <div class="features-icons-icon d-flex">
-                        <i class="icon-screen-desktop m-auto text-primary"></i>
-                    </div>
-                    <h3>Fully Responsive</h3>
-                    <p class="lead mb-0">This theme will look great on any device, no matter the size!</p>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                    <div class="features-icons-icon d-flex">
-                        <i class="icon-layers m-auto text-primary"></i>
-                    </div>
-                    <h3>Bootstrap 4 Ready</h3>
-                    <p class="lead mb-0">Featuring the latest build of the new Bootstrap 4 framework!</p>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="features-icons-item mx-auto mb-0 mb-lg-3">
-                    <div class="features-icons-icon d-flex">
-                        <i class="icon-check m-auto text-primary"></i>
-                    </div>
-                    <h3>Easy to Use</h3>
-                    <p class="lead mb-0">Ready to use with your own content, or customize the source files!</p>
-                </div>
-            </div>
+    <div class="row">
+      <div class="col-md-8 mb-5">
+        <h2>What is a Cellular Automata</h2>
+        <hr>
+        <p>The cellular automata algorithm takes a series of states (binary states in the elementary version) and produces the next generation of this sequence, and by using specific set of rules we can change the behavior of the changing states to suite our aim to find the best solution, to ultimately get the best solution in the best time.!</p>
+        <a class="btn btn-primary btn-lg" href="#">Call to Action &raquo;</a>
+      </div>
+      <div class="col-md-4 mb-5">
+        <h2>Contact Us</h2>
+        <hr>
+        <address>
+          <strong>Start Bootstrap</strong>
+          <br>3481 Melrose Place
+          <br>Beverly Hills, CA 90210
+          <br>
+        </address>
+        <address>
+          <abbr title="Phone">P:</abbr>
+          (123) 456-7890
+          <br>
+          <abbr title="Email">E:</abbr>
+          <a href="mailto:#">name@example.com</a>
+        </address>
+      </div>
+    </div>
+    <!-- /.row -->
+
+    <div class="row">
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <img class="card-img-top" src="http://placehold.it/300x200" alt="">
+          <div class="card-body">
+            <h4 class="card-title">Card title</h4>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque sequi doloribus.</p>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="btn btn-primary">Find Out More!</a>
+          </div>
         </div>
+      </div>
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <img class="card-img-top" src="http://placehold.it/300x200" alt="">
+          <div class="card-body">
+            <h4 class="card-title">Card title</h4>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque sequi doloribus totam ut praesentium aut.</p>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="btn btn-primary">Find Out More!</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <img class="card-img-top" src="http://placehold.it/300x200" alt="">
+          <div class="card-body">
+            <h4 class="card-title">Card title</h4>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="btn btn-primary">Find Out More!</a>
+          </div>
+        </div>
+      </div>
     </div>
-</section>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+ 
 {% endblock %}
