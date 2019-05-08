@@ -38,13 +38,13 @@ def diabetes_prediction(request):
                 print("result =",res)
                 if res > 0 :
                         diabetes = diabetes_form.save(commit=False)
-                        diabetes.result = '1'
+                        diabetes.result = 'Diseased'
                         diabetes.user = request.user
                         diabetes.save()
                 
                 else:
                     diabetes = diabetes_form.save(commit=False)
-                    diabetes.result = '0'
+                    diabetes.result = 'Healthy'
                     diabetes.user = request.user
                     diabetes.save()
            
