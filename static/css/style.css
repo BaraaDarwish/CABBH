@@ -12,12 +12,7 @@ h1,h2{
     --input-padding-y: .75rem;
   }
   
-  body {
-    margin-top:350px;
-  
-    
-  }
-  
+
   .card-signin {
     border: 0;
     border-radius: 1rem;
