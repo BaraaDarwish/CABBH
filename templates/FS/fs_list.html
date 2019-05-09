@@ -5,8 +5,8 @@
 {% block content %}
 <h2>Feature Selection Results</h2>
 {% if results_list %}
-<table id="myTable" class="display" width="100%">
-        <thead class="thead-dark">
+<table class="compact stripe" id="table_id">
+        <thead >
     <tr>
         <th>name</th>
         <th>old features count</th>
@@ -38,8 +38,8 @@
 </br>
 </br>
 </br>
-<script>
-$(document).ready( function () {
-    $('#myTable').DataTable();
-} );</script>
+
+<script>$(document).ready( function () {
+        $('#table_id').DataTable();
+    } );</script>
 {% endblock %}

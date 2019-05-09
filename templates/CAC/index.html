@@ -7,84 +7,63 @@
       <div class="row h-100 align-items-center">
         <div class="col-lg-12">
           <h1 class="display-4 text-white mt-5 mb-2">CACBBH</h1>
-          <p class="lead mb-5 text-white-50">Cellular Automata Classifier using Binary Black hole optimization, is a new approach for data classification based on the cellular automata rules.</p>
+          <p class="lead mb-5 text-white">Cellular Automata Classifier using Binary Black hole optimization, is a new approach for data classification based on the cellular automata rules.</p>
+        
         </div>
       </div>
     </div>
   </header>
 
-  <!-- Page Content -->
-  <div class="container">
 
-    <div class="row">
-      <div class="col-md-8 mb-5">
-        <h2>What is a Cellular Automata</h2>
-        <hr>
-        <p>The cellular automata algorithm takes a series of states (binary states in the elementary version) and produces the next generation of this sequence, and by using specific set of rules we can change the behavior of the changing states to suite our aim to find the best solution, to ultimately get the best solution in the best time.!</p>
-        <a class="btn btn-primary btn-lg" href="#">Call to Action &raquo;</a>
-      </div>
-      <div class="col-md-4 mb-5">
-        <h2>Contact Us</h2>
-        <hr>
-        <address>
-          <strong>Start Bootstrap</strong>
-          <br>3481 Melrose Place
-          <br>Beverly Hills, CA 90210
-          <br>
-        </address>
-        <address>
-          <abbr title="Phone">P:</abbr>
-          (123) 456-7890
-          <br>
-          <abbr title="Email">E:</abbr>
-          <a href="mailto:#">name@example.com</a>
-        </address>
-      </div>
-    </div>
-    <!-- /.row -->
-
-    <div class="row">
-      <div class="col-md-4 mb-5">
-        <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/300x200" alt="">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque sequi doloribus.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Find Out More!</a>
+    <section id="about">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2>What is a Cellular Automata</h2>
+              <p class="lead">The cellular automata algorithm takes a series of states (binary states in the elementary version) and produces the next generation of this sequence, and by using specific set of rules we can change the behavior of the changing states to suite our aim to find the best solution, to ultimately get the best solution in the best time.!</p>
+                <br/>
+                <img src="{%static 'images/ca.png' %}" class="img-fluid" alt="cellular automata">    
+                <br/>    
+                <br/> 
+                <br/>    
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-4 mb-5">
-        <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/300x200" alt="">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque sequi doloribus totam ut praesentium aut.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Find Out More!</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 mb-5">
-        <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/300x200" alt="">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Find Out More!</a>
+      </section>
+    
+      <section id="services" class="bg-light">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <h2>Black Hole Algorithm</h2>
+              <p class="lead">The black hole optimization algorithm is a robust stochastic optimization technique based on simulation of the behavior of black hole in outer space.The algorithm is a representation of the gravitational force to the Black hole and the less powerful (worse solutions) will be eatin by the black hole.</p>
+              <img src="{%static 'images/bh.png' %}" height="350px" class="rounded mx-auto d-block" alt="balck hole schema"> 
+              <br/>    
+              <br/> 
+              <br/> 
+            </div>
           </div>
         </div>
+      </section>
+    
+      <section >
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <h2>CACBBH</h2>
+              <p class="lead">CACBBH combines these two algorithms in order to produce a more robust way of classification and improving performance using the Black hole technique.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+   <!-- Footer -->
+   <footer class="py-5 bg-dark " style="width: 100%;  ">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
       </div>
-    </div>
-    <!-- /.row -->
-
-  </div>
-  <!-- /.container -->
-
+      <!-- /.container -->
+    </footer>
+   
  
 {% endblock %}

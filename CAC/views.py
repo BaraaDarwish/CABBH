@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect , HttpResponse
 from .forms import DiabetesPredictionForm
 from CAC import CAClassifier
 from CAC import data_converter
@@ -17,6 +17,8 @@ from rest_framework import generics,authentication,permissions
 def index(request):
     return render(request , 'CAC/index.html' )
 
+
+@login_required
 def diabetes_prediction(request):
     if(request.method == "POST"):
         diabetes_form = DiabetesPredictionForm(data = request.POST)
@@ -41,13 +43,14 @@ def diabetes_prediction(request):
                         diabetes.result = 'Diseased'
                         diabetes.user = request.user
                         diabetes.save()
+                        return HttpResponseRedirect(reverse('CAC:diabetes_results'))
                 
                 else:
                     diabetes = diabetes_form.save(commit=False)
                     diabetes.result = 'Healthy'
                     diabetes.user = request.user
                     diabetes.save()
-           
+                    return HttpResponseRedirect(reverse('CAC:diabetes_results'))
             
 
                 

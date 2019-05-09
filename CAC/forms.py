@@ -9,21 +9,21 @@ class DiabetesPredictionForm(forms.ModelForm):
         error_css_class = 'error'
         exclude = ('result','user')
         widgets = {
-            'Pregnancies': forms.TextInput(attrs={'class': 'form-control','style':input_style, 'placeholder':'between 0-63 ...' }),
-            'Glucose': forms.TextInput(attrs={'class':'form-control','style':input_style,'placeholder':'between 0-511...'}),
-            'BloodPressure': forms.TextInput(attrs={'class': 'form-control','style':input_style,'placeholder':'between 0-255 ...'}),
-            'SkinThickness': forms.TextInput(attrs={'class': 'form-control','style':input_style,'placeholder':'between 0-255...'}),
-            'Insulin': forms.TextInput(attrs={'class': 'form-control','style':input_style,'placeholder':'between 0-1023 ...'}),
-            'BMI': forms.TextInput(attrs={'class': 'form-control','style':input_style,'placeholder':'between 0-99.9 ...'}),
-            'DiabetesPedigreeFunction': forms.TextInput(attrs={'class': 'form-control','style':input_style ,'placeholder':'between 0 - 2.047 ...'}),
-            'Age': forms.TextInput(attrs={'class': 'form-control','style':input_style,'placeholder':'Age in years'}),
+            'Pregnancies': forms.TextInput(attrs={'class': 'form-control', 'type':"number" ,'style':input_style, 'placeholder':'between 0-63 ...' }),
+            'Glucose': forms.TextInput(attrs={'class':'form-control','type':"number" ,'style':input_style,'placeholder':'between 0-511...'}),
+            'BloodPressure': forms.TextInput(attrs={'class': 'form-control','type':"number" ,'style':input_style,'placeholder':'between 0-255 ...'}),
+            'SkinThickness': forms.TextInput(attrs={'class': 'form-control','type':"number" ,'style':input_style,'placeholder':'between 0-255...'}),
+            'Insulin': forms.TextInput(attrs={'class': 'form-control','type':"number" ,'style':input_style,'placeholder':'between 0-1023 ...'}),
+            'BMI': forms.TextInput(attrs={'class': 'form-control','type':"number" ,'style':input_style,'placeholder':'between 0-99.9 ...'}),
+            'DiabetesPedigreeFunction': forms.TextInput(attrs={'class': 'form-control','type':"number" ,'style':input_style ,'placeholder':'between 0 - 2.047 ...'}),
+            'Age': forms.TextInput(attrs={'class': 'form-control','type':"number" ,'style':input_style,'placeholder':'Age in years'}),
             'name': forms.TextInput(attrs={'class': 'form-control','style':input_style,'placeholder':'prediction name'}),
 
         }
     def clean_Pregnancies(self):
             Pregnancies = self.cleaned_data.get("Pregnancies")
             if Pregnancies > 63 or Pregnancies <0:
-                raise forms.ValidationError("out of bounds")
+                raise forms.ValidationError("Pregnancies out of bounds")
             else:
                 return Pregnancies
     def clean_Glucose(self):

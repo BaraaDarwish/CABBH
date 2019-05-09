@@ -44,7 +44,14 @@ def register(requset):
             return HttpResponseRedirect(reverse("FS:user_login"))
 						
         else:
-            print(user_form.errors)
+            
+            dict = {
+        'user_form':user_form,
+        'registered':registered
+
+             }
+
+            return render(requset , 'FS/register.html',dict)
     else:
         user_form = UserForm
       
@@ -68,11 +75,9 @@ def user_login(request):
                 login_fun(request , user)
                 return HttpResponseRedirect(reverse('CAC:index'))
             else:
-                return HttpResponse('Account Not Active')
+                data_dict={'error_message':"User not Active"};return render(request, 'FS/login.html',data_dict)
         else:
-            print('someone failde login')
-            print('Username :{} and password :{}'.format(username , password))
-            return HttpResponse('Invalid Credentials')
+            data_dict={'error_message':"Invalid Credentials"};return render(request, 'FS/login.html',data_dict)
     else:
         return render(request , 'FS/login.html')
 	
@@ -86,10 +91,9 @@ def upload_csv(request):
 		
 			csv_file = request.FILES["csv_file"]
 			if not csv_file.name.endswith('.csv'):
-				messages.error(request,'File is not CSV type')
+				data_dict={'error_message':"CSV file required"};return render(request, 'FS/upload_csv.html',data_dict)
 			if csv_file.multiple_chunks():
-				messages.error(request,"Uploaded file is too big (%.2f MB)." % (csv_file.size/(1000*1000),))
-				return HttpResponseRedirect(reverse("FS:upload_csv"))
+				data_dict={'error_message':"File too big"};return render(request, 'FS/upload_csv.html',data_dict)
 			try:
 				old_accuracy , feat_num , new_accuracy, new_features , new_ds = BBH3.FS(csv_file)
 		
@@ -107,7 +111,9 @@ def upload_csv(request):
 				
 				
 			except Exception as e:
-				logging.getLogger("error_logger").error("Unable to upload file. "+repr(e))
+				data_dict={'error_message':"Error occured"+str(e)};return render(request, 'FS/upload_csv.html',data_dict)
+
+                
 
 	return HttpResponseRedirect(reverse("FS:results"))
 

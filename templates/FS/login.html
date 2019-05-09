@@ -4,12 +4,19 @@
 {% block content %}
 
 
-<div class="container">
+<div class="container" style="margin-top:150px;margin-bottom:100px;"> 
         <div class="row">
           <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
             <div class="card card-signin my-5">
               <div class="card-body">
                 <h5 class="card-title text-center">Sign In</h5>
+                {% if error_message %}
+                <div class="alert alert-danger" role="alert">
+                 
+                  {{ error_message }}
+                  
+                  </div>
+                  {% endif %}
                 <form class="form-signin" action="{% url 'FS:user_login' %}" method="POST">
                         {% csrf_token %}
                   <div class="form-label-group">
@@ -25,7 +32,7 @@
                   
                   <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
                   <hr class="my-4">
-                  <a class="btn btn-lg btn-google btn-block text-uppercase" href="{% url 'FS:register' %}" > Registere</a>
+                  <a class="btn btn-lg btn-google btn-block text-uppercase" href="{% url 'FS:register' %}" > Register</a>
                 </form>
               </div>
             </div>

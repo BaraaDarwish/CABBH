@@ -1,22 +1,10 @@
 <!DOCTYPE html>
 {% extends "CAC/base.html" %}
 
-user = models.ForeignKey(
-        User, on_delete=models.CASCADE , blank = True)
-    name = models.CharField(max_length=50,default='Untitled')
-    Pregnancies = models.IntegerField( validators=[])
-    Glucose = models.IntegerField()	
-    BloodPressure = models.IntegerField()
-    SkinThickness = models.IntegerField()	
-    Insulin = models.IntegerField()
-    BMI =  models.FloatField()	
-    DiabetesPedigreeFunction = models.FloatField()	
-    Age = models.IntegerField()	
-    result = models.CharField(max_length=50)
 {% block content %}
 <h2>Feature Selection Results</h2>
-<table class="table">
-        <thead class="thead-dark">
+<table  class="stripe" style="width:100%" id="table_id">
+        <thead>
     <tr>
         <th>name</th>
         <th>Pregnancies</th>
@@ -48,5 +36,7 @@ user = models.ForeignKey(
     </tr>
     {% endfor %}
 </table>
-
+<script>$(document).ready( function () {
+        $('#table_id').DataTable();
+    } );</script>
 {% endblock %}

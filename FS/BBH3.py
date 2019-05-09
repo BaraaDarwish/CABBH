@@ -175,9 +175,7 @@ def BBHA(stars_num, iterations_number, rand):
     binary = mask_converter(list_of_stars[bh_index].selection , list_of_stars[bh_index].criteria)
     mask = np.array(binary)
     X_masked = X.values[:, mask]
-    cols = X.columns[mask]
     new_ds = pd.DataFrame(np.c_[X_masked, y])
-    new_ds.columns = cols + "result"
     return  feature_count(list_of_stars[bh_index]) , accuracy_random_forest(list_of_stars[bh_index].selection , list_of_stars[bh_index].criteria),new_ds.to_csv()
 
 def old_fitness(x, y ):
