@@ -7,6 +7,7 @@ import random
 from datetime import datetime
 X = pd.DataFrame()
 y = pd.DataFrame()
+cols =[]
 feat_num = 0
 random.seed(datetime.now)
 
@@ -175,7 +176,11 @@ def BBHA(stars_num, iterations_number, rand):
     binary = mask_converter(list_of_stars[bh_index].selection , list_of_stars[bh_index].criteria)
     mask = np.array(binary)
     X_masked = X.values[:, mask]
+
     new_ds = pd.DataFrame(np.c_[X_masked, y])
+    
+    mask = np.append(mask, True)
+    new_ds.columns = cols[mask]
     return  feature_count(list_of_stars[bh_index]) , accuracy_random_forest(list_of_stars[bh_index].selection , list_of_stars[bh_index].criteria),new_ds.to_csv()
 
 def old_fitness(x, y ):
@@ -203,7 +208,8 @@ def FS(csv , stars_num = 10 , iterations_number=10):
     X = data[data.columns[:-1]]
     global y
     global  feat_num
-   
+    global cols
+    cols = data.columns
     y = data[data.columns[-1]]
     feat_num = len(X.iloc[0])
     random.seed(datetime.now)
