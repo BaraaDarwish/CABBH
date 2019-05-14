@@ -14,8 +14,8 @@ class DiabetesPredictionForm(forms.ModelForm):
             'BloodPressure': forms.TextInput(attrs={'class': 'form-control','type':"number" ,'style':input_style,'placeholder':'between 0-255 ...'}),
             'SkinThickness': forms.TextInput(attrs={'class': 'form-control','type':"number" ,'style':input_style,'placeholder':'between 0-255...'}),
             'Insulin': forms.TextInput(attrs={'class': 'form-control','type':"number" ,'style':input_style,'placeholder':'between 0-1023 ...'}),
-            'BMI': forms.TextInput(attrs={'class': 'form-control','type':"number" ,'style':input_style,'placeholder':'between 0-99.9 ...'}),
-            'DiabetesPedigreeFunction': forms.TextInput(attrs={'class': 'form-control','type':"number" ,'style':input_style ,'placeholder':'between 0 - 2.047 ...'}),
+            'BMI': forms.TextInput(attrs={'class': 'form-control','type':"number" ,'step': "0.1",'style':input_style,'placeholder':'between 0-99.9 ...'}),
+            'DiabetesPedigreeFunction': forms.TextInput(attrs={'class': 'form-control','step': "0.001",'type':"number" ,'style':input_style ,'placeholder':'between 0 - 2.047 ...'}),
             'Age': forms.TextInput(attrs={'class': 'form-control','type':"number" ,'style':input_style,'placeholder':'Age in years'}),
             'name': forms.TextInput(attrs={'class': 'form-control','style':input_style,'placeholder':'prediction name'}),
 
